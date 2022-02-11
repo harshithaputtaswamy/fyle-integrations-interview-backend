@@ -12,7 +12,6 @@ class AssignmentsView(generics.ListCreateAPIView):
 
     def get(self, request, *args, **kwargs):
         assignments = Assignment.objects.filter(student__user=request.user)
-
         return Response(
             data=self.serializer_class(assignments, many=True).data,
             status=status.HTTP_200_OK

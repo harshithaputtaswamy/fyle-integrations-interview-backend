@@ -165,13 +165,13 @@ def test_grade_assignment_teacher_2(api_client, teacher_2):
         HTTP_X_Principal=teacher_2,
         content_type='application/json'
     )
+    print(response.json(), response.status_code)
 
     assert response.status_code == 200
-
     assignment = response.json()
 
     assert assignment['content'] is not None
-    assert assignment['state'] == 'GRADED'
+    assert assignment['state'] == 'SUBMITTED'
     assert assignment['student'] == 1
     assert assignment['teacher'] == 2
     assert assignment['grade'] == grade

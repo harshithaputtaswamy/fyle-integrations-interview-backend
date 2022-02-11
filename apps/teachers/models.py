@@ -11,3 +11,4 @@ class Teacher(models.Model):
 
     class Meta:
         db_table = 'teachers'
+ 
