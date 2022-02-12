@@ -171,7 +171,7 @@ def test_grade_assignment_teacher_2(api_client, teacher_2):
     assignment = response.json()
 
     assert assignment['content'] is not None
-    assert assignment['state'] == 'SUBMITTED'
+    assert assignment['state'] == 'GRADED'
     assert assignment['student'] == 1
     assert assignment['teacher'] == 2
     assert assignment['grade'] == grade
