@@ -26,7 +26,7 @@ class TeacherAssignmentSerializer(serializers.ModelSerializer):
                     raise serializers.ValidationError('GRADED assignments cannot be graded again')
                 if self.initial_data['assignment'].state == 'SUBMITTED':
                     self.initial_data['assignment'].state = 'GRADED'
-            elif self.initial_data['assignment'].teacher.id != self.initial_data['teacher']:
+            else:
                 raise serializers.ValidationError('Teacher cannot grade for other teachers assignment')
         elif 'grade' in attrs and attrs['grade'] not in ["A", "B", "C", "D"]:
             raise serializers.ValidationError('Invalid Grade')
